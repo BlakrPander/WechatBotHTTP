@@ -1,0 +1,22 @@
+Log file created at: 2024/06/07 10:20:51
+Running on machine: 10_0_4_13
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20240607 10:20:51.427089  2160 dllmain.cpp:13] Robot Start, isWxLogin: 0, pid: 2808
+I20240607 10:21:16.221629  2500 ReceiveMessage.cpp:147] msgid: 2949077666371052809 send begin.
+I20240607 10:21:16.221629  2500 ReceiveMessage.cpp:148] type: 10002, sender: weixin
+I20240607 10:21:16.221629  2500 ReceiveMessage.cpp:149] content size: 19885
+I20240607 10:21:16.284319  2500 ReceiveMessage.cpp:166] msgid: 2949077666371052809 send end.
+I20240607 10:21:18.058804  5192 ReceiveMessage.cpp:147] msgid: 5902356934846913382 send begin.
+I20240607 10:21:18.058804  5192 ReceiveMessage.cpp:148] type: 51, sender: wxid_n55yg50aengs12
+I20240607 10:21:18.058804  5192 ReceiveMessage.cpp:149] content size: 9949
+I20240607 10:21:18.058804  5192 ReceiveMessage.cpp:166] msgid: 5902356934846913382 send end.
+I20240607 10:21:18.089680   756 ReceiveMessage.cpp:147] msgid: 4412939584285465047 send begin.
+I20240607 10:21:18.089680   756 ReceiveMessage.cpp:148] type: 51, sender: wxid_n55yg50aengs12
+I20240607 10:21:18.089680   756 ReceiveMessage.cpp:149] content size: 717
+I20240607 10:21:18.121028   756 ReceiveMessage.cpp:166] msgid: 4412939584285465047 send end.
+I20240607 10:21:20.593314  4792 ReceiveMessage.cpp:147] msgid: 8984439957942712762 send begin.
+I20240607 10:21:20.593314  4792 ReceiveMessage.cpp:148] type: 51, sender: wxid_n55yg50aengs12
+I20240607 10:21:20.593314  4792 ReceiveMessage.cpp:149] content size: 9949
+I20240607 10:21:20.608996  4792 ReceiveMessage.cpp:166] msgid: 8984439957942712762 send end.
+I20240607 10:21:31.612972  4132 ReceiveMessage.cpp:147] msgid: 8360281743531460811 send begin.

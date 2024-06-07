@@ -1,0 +1,6 @@
+Log file created at: 2024/06/05 17:15:47
+Running on machine: 10_0_4_13
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20240605 17:15:47.822099  5560 dllmain.cpp:13] Robot Start, isWxLogin: 0, pid: 684
+I20240605 17:17:08.051121  5332 dllmain.cpp:32] Robot Stop

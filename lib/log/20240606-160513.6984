@@ -1,0 +1,30 @@
+Log file created at: 2024/06/06 16:05:13
+Running on machine: 10_0_4_13
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20240606 16:05:13.961608  3864 dllmain.cpp:13] Robot Start, isWxLogin: 0, pid: 6984
+I20240606 16:05:35.843294  4980 ReceiveMessage.cpp:147] msgid: 2930443385282270681 send begin.
+I20240606 16:05:35.850641  4980 ReceiveMessage.cpp:148] type: 51, sender: 24828605151@chatroom
+I20240606 16:05:35.850641  4980 ReceiveMessage.cpp:149] content size: 489
+I20240606 16:05:35.913390  6624 ReceiveMessage.cpp:147] msgid: 4675058629426695975 send begin.
+I20240606 16:05:35.913390  6624 ReceiveMessage.cpp:148] type: 51, sender: 43854514596@chatroom
+I20240606 16:05:35.913390  6624 ReceiveMessage.cpp:149] content size: 613
+I20240606 16:05:36.023066  1316 ReceiveMessage.cpp:147] msgid: 5155636564714450624 send begin.
+I20240606 16:05:36.023066  1316 ReceiveMessage.cpp:148] type: 10002, sender: weixin
+I20240606 16:05:36.038239  1316 ReceiveMessage.cpp:149] content size: 19885
+I20240606 16:05:36.085269  3748 ReceiveMessage.cpp:147] msgid: 609705983111320709 send begin.
+I20240606 16:05:36.085269  3748 ReceiveMessage.cpp:148] type: 51, sender: wxid_n55yg50aengs12
+I20240606 16:05:36.100951  3748 ReceiveMessage.cpp:149] content size: 9966
+I20240606 16:05:36.116638  2664 ReceiveMessage.cpp:147] msgid: 1409570855080338662 send begin.
+I20240606 16:05:36.116638  2664 ReceiveMessage.cpp:148] type: 51, sender: wxid_n55yg50aengs12
+I20240606 16:05:36.132339  2664 ReceiveMessage.cpp:149] content size: 717
+I20240606 16:05:36.397797  4980 ReceiveMessage.cpp:166] msgid: 2930443385282270681 send end.
+I20240606 16:05:36.476223  6624 ReceiveMessage.cpp:166] msgid: 4675058629426695975 send end.
+I20240606 16:05:36.530175  1316 ReceiveMessage.cpp:166] msgid: 5155636564714450624 send end.
+I20240606 16:05:36.549647  3748 ReceiveMessage.cpp:166] msgid: 609705983111320709 send end.
+I20240606 16:05:36.558410  2664 ReceiveMessage.cpp:166] msgid: 1409570855080338662 send end.
+I20240606 16:05:39.027678  2012 ReceiveMessage.cpp:147] msgid: 8851752515824111256 send begin.
+I20240606 16:05:39.027678  2012 ReceiveMessage.cpp:148] type: 51, sender: wxid_n55yg50aengs12
+I20240606 16:05:39.027678  2012 ReceiveMessage.cpp:149] content size: 9967
+I20240606 16:05:39.043337  2012 ReceiveMessage.cpp:166] msgid: 8851752515824111256 send end.
+I20240606 16:05:46.285153  6408 ReceiveMessage.cpp:147] msgid: 3294349566009717291 send begin.

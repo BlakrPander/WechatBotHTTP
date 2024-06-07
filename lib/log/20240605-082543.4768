@@ -1,0 +1,30 @@
+Log file created at: 2024/06/05 08:25:43
+Running on machine: 10_0_4_13
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20240605 08:25:43.635912  5248 dllmain.cpp:13] Robot Start, isWxLogin: 1, pid: 4768
+I20240605 08:25:47.662364   320 ReceiveMessage.cpp:147] msgid: 3939841814229667925 send begin.
+I20240605 08:25:47.662364   320 ReceiveMessage.cpp:148] type: 51, sender: wxid_n55yg50aengs12
+I20240605 08:25:47.678063   320 ReceiveMessage.cpp:149] content size: 3114
+I20240605 08:25:47.678063   320 ReceiveMessage.cpp:166] msgid: 3939841814229667925 send end.
+I20240605 08:25:56.824088  1476 ReceiveMessage.cpp:147] msgid: 2068844741762689603 send begin.
+I20240605 08:25:56.824088  1476 ReceiveMessage.cpp:148] type: 51, sender: wxid_n55yg50aengs12
+I20240605 08:25:56.824088  1476 ReceiveMessage.cpp:149] content size: 3114
+I20240605 08:25:56.839761  1476 ReceiveMessage.cpp:166] msgid: 2068844741762689603 send end.
+I20240605 08:25:56.886337  3812 ReceiveMessage.cpp:147] msgid: 2783820421991250946 send begin.
+I20240605 08:25:56.886337  3812 ReceiveMessage.cpp:148] type: 1, sender: wxid_wt8bvv5gcerl22
+I20240605 08:25:56.886337  3812 ReceiveMessage.cpp:149] content size: 326
+I20240605 08:25:56.902002  3812 ReceiveMessage.cpp:166] msgid: 2783820421991250946 send end.
+I20240605 08:27:49.902159  1116 ReceiveMessage.cpp:147] msgid: 3779398227970580952 send begin.
+I20240605 08:27:49.902159  1116 ReceiveMessage.cpp:148] type: 51, sender: filehelper
+I20240605 08:27:49.902159  1116 ReceiveMessage.cpp:149] content size: 583
+I20240605 08:27:49.902159  1116 ReceiveMessage.cpp:166] msgid: 3779398227970580952 send end.
+I20240605 08:27:52.183892  3792 ReceiveMessage.cpp:147] msgid: 1722113615481401010 send begin.
+I20240605 08:27:52.183892  3792 ReceiveMessage.cpp:148] type: 1, sender: filehelper
+I20240605 08:27:52.183892  3792 ReceiveMessage.cpp:149] content size: 549
+I20240605 08:27:52.199568  3792 ReceiveMessage.cpp:166] msgid: 1722113615481401010 send end.
+I20240605 08:28:31.897766  5348 ReceiveMessage.cpp:147] msgid: 1202368682257476877 send begin.
+I20240605 08:28:31.897766  5348 ReceiveMessage.cpp:148] type: 1, sender: filehelper
+I20240605 08:28:31.897766  5348 ReceiveMessage.cpp:149] content size: 489
+I20240605 08:28:32.929697  5348 ReceiveMessage.cpp:166] msgid: 1202368682257476877 send end.
+I20240605 08:28:39.346546  3812 dllmain.cpp:32] Robot Stop

@@ -1,0 +1,3 @@
+from .WechatHttpApis import WECHAT_HTTP_APIS
+from .WechatHttpApiParamTemplates import WECHAT_HTTP_API_PARAM_TEMPLATES
+from .WechatHttpApiOperation import WECHAT_HTTP_API_OP
