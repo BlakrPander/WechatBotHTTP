@@ -1,0 +1,2 @@
+# WechatBotHTTP
+采用ComWechatRobot框架的机器人，采用了HTTP的API接口调用
