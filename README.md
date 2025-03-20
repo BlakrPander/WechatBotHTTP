@@ -1,6 +1,6 @@
 # WechatBotHTTP
 
-采用ComWechatRobot框架的机器人，采用了HTTP的API接口调用
+基于Windows Server平台，用Python写了接口的微信机器人，采用了ComWechatRobot框架里面的HTTP API接口调用
 
 环境：
 - 前置：[ComWechatRobot](https://github.com/ljc545w/ComWeChatRobot)
