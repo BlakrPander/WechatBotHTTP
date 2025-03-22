@@ -6,6 +6,7 @@ post_wechat_http_api = OP.post_wechat_http_api
 get_wechat_hhtp_api = OP.get_wechat_http_api
 
 class ChatroomFunctions:
+
     @staticmethod
     def get_chatroom_member_nickname(chatroom:str, senderWechatId:str, port = 8000) -> str :
         nickname = ''
