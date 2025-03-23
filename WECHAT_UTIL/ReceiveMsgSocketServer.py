@@ -1,7 +1,7 @@
 #coding=gbk
 import socketserver
 import json
-from .MessageProcess import messageProcess as msgProcess
+from WECHAT_UTIL.MessageProcess import messageProcess as msgProcess
 
 class ReceiveMsgSocketServer(socketserver.BaseRequestHandler):
     def __init__(self, *args, **kwargs):

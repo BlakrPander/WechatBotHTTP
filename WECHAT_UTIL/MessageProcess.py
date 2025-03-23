@@ -1,9 +1,10 @@
 #coding=utf
-from .util.ChatroomFunctions import ChatroomFunctions
-from .util.ContactFunctions import ContactFunctions
+from WECHAT_UTIL.util.ChatroomFunctions import ChatroomFunctions
+from WECHAT_UTIL.util.ContactFunctions import ContactFunctions
 import json
 import copy
 import re
+
 
 def is_at_me(extrainfo: str, my_wxid: str) -> bool:
 	"""
@@ -16,6 +17,7 @@ def is_at_me(extrainfo: str, my_wxid: str) -> bool:
 	if not match: return False
 	user_list = [uid.strip() for uid in match.group(1).split(",") if uid.strip()]
 	return my_wxid in user_list
+
 
 def messageProcess(msg:dict) -> bool:
 	# 信息特征相关
@@ -99,7 +101,6 @@ def messageProcess(msg:dict) -> bool:
 
 	# print(msg)
 	print(message_processed)
-
 
 	return True
 
