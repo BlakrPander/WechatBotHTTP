@@ -1,10 +1,20 @@
 # WechatBotHTTP
 
-采用ComWechatRobot框架的机器人，采用了HTTP的API接口调用
+基于Windows Server平台，用Python写了接口的微信机器人，采用了ComWechatRobot框架里面的HTTP API接口调用
 
 环境：
-- 前置：ComWechatRobot
-- 运行环境：Python 3.8.10
+- 前置：[ComWechatRobot](https://github.com/ljc545w/ComWeChatRobot)
+- 运行环境：
+-   Windows Server 2022 数据中心版（x64)
+-   Python 3.9.13
+-   Sublime Text
+-   [微信 3.7.0.30](https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.7.0.30/WeChatSetup-3.7.0.30.exe)
+
+使用时，需要先安装好上述特定版本的微信，然后直接运行main.py即可
+
+2025.3.20
+中间或多或少做了一点git的规范，但是都没记录，今天重新将项目部署，特别记录一下
+将项目部署在虚拟机里，方便后续快速在服务器上进行部署
 
 2024.6.6：
 更新：
