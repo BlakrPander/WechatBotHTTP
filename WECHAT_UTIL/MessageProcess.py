@@ -36,44 +36,37 @@ def messageProcess(msg:dict) -> bool:
 		else:
 			senderName += " me"
 
-	if "<msg>" in msgContent:
-		if "<unreadchatlist>" in msgContent:
-			content = "正在读取聊天信息"
-		elif "emoji" in msgContent:
-			content = "一个表情包"
-		elif "img" in msgContent:
-			content = "一个图片"
-		elif "voicemsg" in msgContent:
-			content = "一条语音信息"
-		elif "videomsg" in msgContent:
-			content = "一个视频文件"
-		elif "refermsg" in msgContent:
-			content = "一条回复信息（有待改进）"
-		elif "<pat>" in msgContent:
-			content = "发送了一个拍一拍"		
-		elif "appmsg" in msgContent:
-			content = "一个链接/小程序"
-		else:
-			content = "一条特殊消息"
+	msg_checks = {
+		"<unreadchatlist>": "正在读取聊天信息",
+		"emoji": "一个表情包",
+		"img": "一个图片",
+		"voicemsg": "一条语音信息",
+		"videomsg": "一个视频文件",
+		"refermsg": "一条回复信息（有待改进）",
+		"<pat>": "发送了一个拍一拍",
+		"appmsg": "一个链接/小程序"
+	}
+
+	sys_checks = {
+		"dynacfg": "系统配置消息",
+		"revokemsg": "撤回了一条消息",
+		"pat": "拍了一下"
+	}
+
+	if "<msg>" in msgContent: # 利用字典来进行消息的处理
+		content = next((v for k, v in msg_checks.items() if k in msgContent), "一条特殊消息")
 	elif "sysmsg" in msgContent:
-		if "dynacfg" in msgContent:
-			content = "系统配置消息"
-		elif "revokemsg" in msgContent:
-			content = "撤回了一条消息"
-		elif "pat" in msgContent:
-			content = "拍了一下"
-		else:
-			content = "其他系统消息"
+		content = next((v for k, v in sys_checks.items() if k in msgContent), "其他系统消息")
 	else:
 		content = msgContent
 	# content = msgContent if "<msg>" not in msgContent else "一条特殊消息"
 
-	
 	processedMessage = time+" "+(chatroomName+" "+senderChatroomNickname+" " if isChatroom else senderName+" ") + "发送了 "
 	processedMessage += content
 
 	# print(msg)
 	print(processedMessage)
+
 
 	return True
 	

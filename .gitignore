@@ -4,4 +4,6 @@
 
 /lib/log
 *.log
+.idea
+.venv
 
