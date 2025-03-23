@@ -27,7 +27,7 @@ def fixVersion(version):
     for offset in offsets:
         addr = base_address + offset
         p.write_int(addr, vNum)
-
+    print("WeChat version now fixed to: {}".format(version))
 
 if __name__ == '__main__':
     print("ok!")
