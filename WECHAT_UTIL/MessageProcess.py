@@ -6,6 +6,7 @@ import copy
 import re
 from typing import TypedDict, Optional
 
+
 class WechatMessage(TypedDict):
 	# metadata:
 	extrainfo:Optional[str]
@@ -39,45 +40,33 @@ class WechatMessage(TypedDict):
 
 def messageRestruct(msg: dict) -> WechatMessage:
 	restructed_message:WechatMessage = {
-		"extrainfo":msg.get('extrainfo',None),  # 读取消息原信息
-		"id":msg.get('msgid',None),
-		"type":msg.get('type',None),
-		"content":msg.get('message',None),
+		"extrainfo": msg.get('extrainfo',None),
+		"id": msg.get('msgid',None),
+		"type": msg.get('type',None),
+		"content": msg.get('message',None),
 
-		"sender":msg.get('sender',None),  # 当在群聊里时 sender内容为群聊号 当为私聊时 sender为个人微信id
-		"self_wechat_id":msg.get('self',None),
-		"sender_wechat_id":msg.get('wxid',None),
+		"sender": msg.get('sender',None),
+		"self_wechat_id": msg.get('self',None),
+		"sender_wechat_id": msg.get('wxid',None),
 
-		"file_path":msg.get('filepath',None),
-		"sign":msg.get('sign',None),
-		"thumb_path":msg.get('thumb_path',None),
+		"file_path": msg.get('filepath',None),
+		"sign": msg.get('sign',None),
+		"thumb_path": msg.get('thumb_path',None),
 
-		"time":msg.get('time',None),
-		"time_stamp":msg.get('timestamp',None),
+		"time": msg.get('time',None),
+		"time_stamp": msg.get('timestamp',None),
 
-		# 判断标志
-		"if_is_send_by_phone":msg.get('isSendByPhone',None),
-		"if_is_send_by_myself":msg.get('isSendMsg',None),
-		"if_is_at_me":is_at_me(msg.get('extrainfo'),msg.get('self_Wechat_id')),
-		"if_is_in_chatroom":(True if "chatroom" in msg.get('sender') else False),
+		"if_is_send_by_phone": msg.get('isSendByPhone',None),
+		"if_is_send_by_myself": msg.get('isSendMsg',None),
+		"if_is_at_me": ChatroomFunctions.is_at_me(
+			extrainfo = msg.get('extrainfo'),
+			my_wxid = msg.get('wxid')
+		),
+		"if_is_in_chatroom": (True if "chatroom" in msg.get('sender') else False),
 
-
-		"wechat_process_id":msg.get('pid',None)
+		"wechat_process_id": msg.get('pid',None)
 	}
 	return restructed_message
-
-
-def is_at_me(extrainfo: str, my_wxid: str) -> bool:
-	"""
-	检查是否被@（支持单独@和多人@）
-	:param extrainfo: JSON中的extrainfo字段
-	:param my_wxid: 用户微信ID
-	"""
-	pattern = r"<atuserlist><!\[CDATA\[(.*?)\]\]></atuserlist>"
-	match = re.search(pattern, extrainfo)
-	if not match: return False
-	user_list = [uid.strip() for uid in match.group(1).split(",") if uid.strip()]
-	return my_wxid in user_list
 
 
 def messageProcess(msg:dict) -> bool:
@@ -92,15 +81,13 @@ def messageProcess(msg:dict) -> bool:
 	else:
 		name_sender = "私聊 " + ContactFunctions.get_contact_name(message['sender'])
 
-
-	if message['if_is_send_by_myself'] == 1:
+	if message['if_is_send_by_myself']:
 		if message['if_is_in_chatroom']:
 			name_sender_in_chatroom = "me"
 		else:
 			name_sender += " me"
 
 	msg_checks = {
-		"<unreadchatlist>": "正在读取聊天信息",
 		"emoji": "一个表情包",
 		"img": "一个图片",
 		"voicemsg": "一条语音信息",
@@ -113,7 +100,9 @@ def messageProcess(msg:dict) -> bool:
 	sys_checks = {
 		"dynacfg": "系统配置消息",
 		"revokemsg": "撤回了一条消息",
-		"pat": "拍了一下"
+		"pat": "拍了一下",
+		"ChatSync": "正在同步消息",
+		"<unreadchatlist>": "正在读取聊天信息"
 	}
 
 	if "<msg>" in message['content']: # 利用字典来进行消息的处理
@@ -130,7 +119,6 @@ def messageProcess(msg:dict) -> bool:
 		"发送了 "
 	)
 	message_processed += content
-
 	print(message_processed)
 
 	return True
