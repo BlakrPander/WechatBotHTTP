@@ -3,6 +3,7 @@
 *.pyc
 
 /lib/log
+/files/local
 *.log
 .idea
 .venv
