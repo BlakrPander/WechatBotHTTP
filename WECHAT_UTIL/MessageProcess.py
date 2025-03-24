@@ -4,6 +4,67 @@ from WECHAT_UTIL.util.ContactFunctions import ContactFunctions
 import json
 import copy
 import re
+from typing import TypedDict, Optional
+
+class WechatMessage(TypedDict):
+	# metadata:
+	extrainfo:Optional[str]
+	id:Optional[str]
+	type:Optional[str]
+	content:Optional[str]
+
+	# sender
+	sender:Optional[str] # 当在群聊里时 sender内容为群聊号 当为私聊时 sender为个人微信id
+	self_wechat_id:Optional[str]
+	sender_wechat_id:Optional[str]
+
+	# file
+	file_path:Optional[str]
+	thumb_path:Optional[str]
+	sign:Optional[str]
+
+	# time
+	time:Optional[int]
+	time_stamp:Optional[int]
+
+	# flags
+	if_is_send_by_phone:Optional[bool]
+	if_is_send_by_myself:Optional[bool]
+	if_is_at_me:Optional[bool]
+	if_is_in_chatroom:Optional[bool]
+
+	# pid
+	process_id:Optional[int]
+
+
+def messageRestruct(msg: dict) -> WechatMessage:
+	restructed_message:WechatMessage = {
+		"extrainfo":msg.get('extrainfo',None),  # 读取消息原信息
+		"id":msg.get('msgid',None),
+		"type":msg.get('type',None),
+		"content":msg.get('message',None),
+
+		"sender":msg.get('sender',None),  # 当在群聊里时 sender内容为群聊号 当为私聊时 sender为个人微信id
+		"self_wechat_id":msg.get('self',None),
+		"sender_wechat_id":msg.get('wxid',None),
+
+		"file_path":msg.get('filepath',None),
+		"sign":msg.get('sign',None),
+		"thumb_path":msg.get('thumb_path',None),
+
+		"time":msg.get('time',None),
+		"time_stamp":msg.get('timestamp',None),
+
+		# 判断标志
+		"if_is_send_by_phone":msg.get('isSendByPhone',None),
+		"if_is_send_by_myself":msg.get('isSendMsg',None),
+		"if_is_at_me":is_at_me(msg.get('extrainfo'),msg.get('self_Wechat_id')),
+		"if_is_in_chatroom":(True if "chatroom" in msg.get('sender') else False),
+
+
+		"wechat_process_id":msg.get('pid',None)
+	}
+	return restructed_message
 
 
 def is_at_me(extrainfo: str, my_wxid: str) -> bool:
@@ -20,48 +81,20 @@ def is_at_me(extrainfo: str, my_wxid: str) -> bool:
 
 
 def messageProcess(msg:dict) -> bool:
-	# 信息特征相关
-	message_extrainfo=msg.get('extrainfo',None)  # 读取消息原信息
-	message_id = msg.get('msgid', None)
-	message_type = msg.get('type', None)
-	message_content = msg.get('message', None)
-
-	message_sender = msg.get('sender', None) # 当在群聊里时 sender内容为群聊号 当为私聊时 sender为个人微信id
-
-	# 文件相关
-	filepath=msg.get('filepath',None)
-
-	# 微信id相关
-	self_Wechat_id = msg.get('self', None)
-	message_sender_wechat_id = msg.get('wxid', None)
-
-	# 其他
-	wechat_process_id = msg.get('pid', None)
-	sign = msg.get('sign', None)
-	thumbPath = msg.get('thumb_path', None)
-
-	time = msg.get('time', None)
-	timeStamp = msg.get('timestamp', None)
-
-	# 判断标志
-	if_is_send_by_phone=msg.get('isSendByPhone',None)
-	if_is_send_msg_bymyself=msg.get('isSendMsg',None)
-	if_is_at_me = is_at_me(message_extrainfo, self_Wechat_id)
-	msg['ifAt']=if_is_at_me
-
+	message=messageRestruct(msg)
 
 	name_chatroom = ""
-	if "chatroom" in message_sender: #  判断是否在群聊内
-		if_is_in_chatroom = True
-		name_chatroom = "群聊 " + ChatroomFunctions.get_chatroom_name(message_sender)
-		name_sender_in_chatroom = ChatroomFunctions.get_chatroom_member_nickname(message_sender,message_sender_wechat_id)
+	name_sender= ""
+	name_sender_in_chatroom = ""
+	if message['if_is_in_chatroom']:
+		name_chatroom = "群聊 " + ChatroomFunctions.get_chatroom_name(message['sender'])
+		name_sender_in_chatroom = ChatroomFunctions.get_chatroom_member_nickname(message['sender'],message['sender_wechat_id'])
 	else:
-		if_is_in_chatroom = False
-		name_sender = "私聊 " + ContactFunctions.get_contact_name(message_sender)
+		name_sender = "私聊 " + ContactFunctions.get_contact_name(message['sender'])
 
 
-	if if_is_send_msg_bymyself == 1:
-		if "chatroom" in message_sender:
+	if message['if_is_send_by_myself'] == 1:
+		if message['if_is_in_chatroom']:
 			name_sender_in_chatroom = "me"
 		else:
 			name_sender += " me"
@@ -83,23 +116,21 @@ def messageProcess(msg:dict) -> bool:
 		"pat": "拍了一下"
 	}
 
-	if "<msg>" in message_content: # 利用字典来进行消息的处理
-		content = next((v for k, v in msg_checks.items() if k in message_content), "一条特殊消息")
-	elif "sysmsg" in message_content:
-		content = next((v for k, v in sys_checks.items() if k in message_content), "其他系统消息")
+	if "<msg>" in message['content']: # 利用字典来进行消息的处理
+		content = next((v for k, v in msg_checks.items() if k in message['content']), "一条特殊消息")
+	elif "sysmsg" in message['content']:
+		content = next((v for k, v in sys_checks.items() if k in message['content']), "其他系统消息")
 	else:
-		content = message_content
-	# content = msgContent if "<msg>" not in msgContent else "一条特殊消息"
+		content = message['content']
 
 	message_processed = (
-		time + " "+
-		(name_chatroom+" "+name_sender_in_chatroom+" " if if_is_in_chatroom else name_sender+" ") +
-		("at了你" if if_is_at_me else "") +
+		str(message['time']) + " "+
+		(name_chatroom + " " + name_sender_in_chatroom + " " if message['if_is_in_chatroom'] else name_sender+" ") +
+		("at了你" if message['if_is_at_me'] else "") +
 		"发送了 "
 	)
 	message_processed += content
 
-	# print(msg)
 	print(message_processed)
 
 	return True
