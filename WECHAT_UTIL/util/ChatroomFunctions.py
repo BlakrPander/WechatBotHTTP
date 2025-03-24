@@ -42,14 +42,15 @@ class ChatroomFunctions:
 
 
     @staticmethod
-    def is_at_me(extrainfo: str,my_wxid: str) -> bool:
+    def is_at_me(extrainfo: str, my_wxid: str) -> bool:
         """
         检查是否被@（支持单独@和多人@）
         :param extrainfo: JSON中的extrainfo字段
         :param my_wxid: 用户微信ID
         """
-        pattern=r"<atuserlist><!\[CDATA\[(.*?)\]\]></atuserlist>"
-        match=re.search(pattern,extrainfo)
-        if not match: return False
-        user_list=[uid.strip() for uid in match.group(1).split(",") if uid.strip()]
+        pattern = r"<atuserlist>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</atuserlist>"
+        match = re.search(pattern, extrainfo)
+        if not match:
+            return False
+        user_list = [uid.strip() for uid in match.group(1).split(",") if uid.strip()]
         return my_wxid in user_list

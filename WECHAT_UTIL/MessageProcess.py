@@ -60,7 +60,7 @@ def messageRestruct(msg: dict) -> WechatMessage:
 		"if_is_send_by_myself": msg.get('isSendMsg',None),
 		"if_is_at_me": ChatroomFunctions.is_at_me(
 			extrainfo = msg.get('extrainfo'),
-			my_wxid = msg.get('wxid')
+			my_wxid = msg.get('self')
 		),
 		"if_is_in_chatroom": (True if "chatroom" in msg.get('sender') else False),
 
