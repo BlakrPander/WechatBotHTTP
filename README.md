@@ -7,10 +7,15 @@
 - 运行环境：
 -   Windows Server 2022 数据中心版（x64)
 -   Python 3.9.13
+- - 需要包：openai、requests、psutil、pymem
 -   Sublime Text
 -   [微信 3.7.0.30](https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.7.0.30/WeChatSetup-3.7.0.30.exe)
 
-使用时，需要先安装好上述特定版本的微信，然后直接运行main.py即可
+使用配置：
+- 安装好上述特定版本的微信
+- 在WECHAT_UTIL/util/Functions/DeepSeek/configurations.json里，配置自己的apikey
+- 在WECHAT_UTIL/util/chatroom.json里配置授权的群聊
+- 运行main.py即可
 
 2025.3.26
 - 添加了被at时自动接入deepseek
