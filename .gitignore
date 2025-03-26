@@ -8,3 +8,6 @@
 .idea
 .venv
 
+/WECHAT_UTIL/util/chatroom.json
+/WECHAT_UTIL/util/Functions/DeepSeek/history
+

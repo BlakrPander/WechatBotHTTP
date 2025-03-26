@@ -2,70 +2,70 @@
 
 class WECHAT_HTTP_APIS:
     # login check
-    WECHAT_IS_LOGIN = 0                         # ��¼���
+    WECHAT_IS_LOGIN = 0                         # 登录检查
 
     # self info
-    WECHAT_GET_SELF_INFO = 1                    # ��ȡ������Ϣ
+    WECHAT_GET_SELF_INFO = 1                    # 获取个人信息
 
     # send message
-    WECHAT_MSG_SEND_TEXT = 2                    # �����ı�
-    WECHAT_MSG_SEND_AT = 3                      # ����Ⱥ����
-    WECHAT_MSG_SEND_CARD = 4                    # ����������Ƭ
-    WECHAT_MSG_SEND_IMAGE = 5                   # ����ͼƬ
-    WECHAT_MSG_SEND_FILE = 6                    # �����ļ�
-    WECHAT_MSG_SEND_ARTICLE = 7                 # ����xml����
-    WECHAT_MSG_SEND_APP = 8                     # ����С����
+    WECHAT_MSG_SEND_TEXT = 2                    # 发送文本
+    WECHAT_MSG_SEND_AT = 3                      # 发送群艾特
+    WECHAT_MSG_SEND_CARD = 4                    # 分享好友名片
+    WECHAT_MSG_SEND_IMAGE = 5                   # 发送图片
+    WECHAT_MSG_SEND_FILE = 6                    # 发送文件
+    WECHAT_MSG_SEND_ARTICLE = 7                 # 发送xml文章
+    WECHAT_MSG_SEND_APP = 8                     # 发送小程序
 
     # receive message
-    WECHAT_MSG_START_HOOK = 9                   # ����������ϢHOOK��ֻ֧��socket����
-    WECHAT_MSG_STOP_HOOK = 10                   # �رս�����ϢHOOK
-    WECHAT_MSG_START_IMAGE_HOOK = 11            # ����ͼƬ��ϢHOOK
-    WECHAT_MSG_STOP_IMAGE_HOOK = 12             # �ر�ͼƬ��ϢHOOK
-    WECHAT_MSG_START_VOICE_HOOK = 13            # ����������ϢHOOK
-    WECHAT_MSG_STOP_VOICE_HOOK = 14             # �ر�������ϢHOOK
+    WECHAT_MSG_START_HOOK = 9                   # 开启接收消息HOOK，只支持socket监听
+    WECHAT_MSG_STOP_HOOK = 10                   # 关闭接收消息HOOK
+    WECHAT_MSG_START_IMAGE_HOOK = 11            # 开启图片消息HOOK
+    WECHAT_MSG_STOP_IMAGE_HOOK = 12             # 关闭图片消息HOOK
+    WECHAT_MSG_START_VOICE_HOOK = 13            # 开启语音消息HOOK
+    WECHAT_MSG_STOP_VOICE_HOOK = 14             # 关闭语音消息HOOK
 
     # contact
-    WECHAT_CONTACT_GET_LIST = 15                # ��ȡ��ϵ���б�
-    WECHAT_CONTACT_CHECK_STATUS = 16            # ����Ƿ񱻺���ɾ��
-    WECHAT_CONTACT_DEL = 17                     # ɾ������
-    WECHAT_CONTACT_SEARCH_BY_CACHE = 18         # ���ڴ��л�ȡ������Ϣ
-    WECHAT_CONTACT_SEARCH_BY_NET = 19           # ���������û���Ϣ
-    WECHAT_CONTACT_ADD_BY_WXID = 20             # wxid�Ӻ���
-    WECHAT_CONTACT_ADD_BY_V3 = 21               # v3���ݼӺ���
-    WECHAT_CONTACT_ADD_BY_PUBLIC_ID = 22        # ��ע���ں�
-    WECHAT_CONTACT_VERIFY_APPLY = 23            # ͨ����������
-    WECHAT_CONTACT_EDIT_REMARK = 24             # �޸ı�ע
+    WECHAT_CONTACT_GET_LIST = 15                # 获取联系人列表
+    WECHAT_CONTACT_CHECK_STATUS = 16            # 检查是否被好友删除
+    WECHAT_CONTACT_DEL = 17                     # 删除好友
+    WECHAT_CONTACT_SEARCH_BY_CACHE = 18         # 从内存中获取好友信息
+    WECHAT_CONTACT_SEARCH_BY_NET = 19           # 网络搜索用户信息
+    WECHAT_CONTACT_ADD_BY_WXID = 20             # wxid加好友
+    WECHAT_CONTACT_ADD_BY_V3 = 21               # v3数据加好友
+    WECHAT_CONTACT_ADD_BY_PUBLIC_ID = 22        # 关注公众号
+    WECHAT_CONTACT_VERIFY_APPLY = 23            # 通过好友请求
+    WECHAT_CONTACT_EDIT_REMARK = 24             # 修改备注
 
     # chatroom
-    WECHAT_CHATROOM_GET_MEMBER_LIST = 25        # ��ȡȺ��Ա�б�
-    WECHAT_CHATROOM_GET_MEMBER_NICKNAME = 26    # ��ȡָ��Ⱥ��Ա�ǳ�
-    WECHAT_CHATROOM_DEL_MEMBER = 27             # ɾ��Ⱥ��Ա
-    WECHAT_CHATROOM_ADD_MEMBER = 28             # ����Ⱥ��Ա
-    WECHAT_CHATROOM_SET_ANNOUNCEMENT = 29       # ����Ⱥ����
-    WECHAT_CHATROOM_SET_CHATROOM_NAME = 30      # ����Ⱥ������
-    WECHAT_CHATROOM_SET_SELF_NICKNAME = 31      # ����Ⱥ�ڸ����ǳ�
+    WECHAT_CHATROOM_GET_MEMBER_LIST = 25        # 获取群成员列表
+    WECHAT_CHATROOM_GET_MEMBER_NICKNAME = 26    # 获取指定群成员昵称
+    WECHAT_CHATROOM_DEL_MEMBER = 27             # 删除群成员
+    WECHAT_CHATROOM_ADD_MEMBER = 28             # 添加群成员
+    WECHAT_CHATROOM_SET_ANNOUNCEMENT = 29       # 设置群公告
+    WECHAT_CHATROOM_SET_CHATROOM_NAME = 30      # 设置群聊名称
+    WECHAT_CHATROOM_SET_SELF_NICKNAME = 31      # 设置群内个人昵称
 
     # database
-    WECHAT_DATABASE_GET_HANDLES = 32            # ��ȡ���ݿ���
-    WECHAT_DATABASE_BACKUP = 33                 # �������ݿ�
-    WECHAT_DATABASE_QUERY = 34                  # ���ݿ��ѯ
+    WECHAT_DATABASE_GET_HANDLES = 32            # 获取数据库句柄
+    WECHAT_DATABASE_BACKUP = 33                 # 备份数据库
+    WECHAT_DATABASE_QUERY = 34                  # 数据库查询
 
     # version
-    WECHAT_SET_VERSION = 35                     # �޸�΢�Ű汾��
+    WECHAT_SET_VERSION = 35                     # 修改微信版本号
 
     # log
-    WECHAT_LOG_START_HOOK = 36                  # ������־��ϢHOOK
-    WECHAT_LOG_STOP_HOOK = 37                   # �ر���־��ϢHOOK
+    WECHAT_LOG_START_HOOK = 36                  # 开启日志信息HOOK
+    WECHAT_LOG_STOP_HOOK = 37                   # 关闭日志信息HOOK
 
     # browser
-    WECHAT_BROWSER_OPEN_WITH_URL = 38           # ��΢�����������
-    WECHAT_GET_PUBLIC_MSG = 39                  # ��ȡ���ں���ʷ��Ϣ
+    WECHAT_BROWSER_OPEN_WITH_URL = 38           # 打开微信内置浏览器
+    WECHAT_GET_PUBLIC_MSG = 39                  # 获取公众号历史消息
 
-    WECHAT_MSG_FORWARD_MESSAGE = 40             # ת����Ϣ
-    WECHAT_GET_QRCODE_IMAGE = 41                # ��ȡ��ά��
-    WECHAT_GET_A8KEY = 42                       # ��ȡA8Key
-    WECHAT_MSG_SEND_XML = 43                    # ����xml��Ϣ
-    WECHAT_LOGOUT = 44                          # �˳���¼
-    WECHAT_GET_TRANSFER = 45                    # �տ�
-    WECHAT_MSG_SEND_EMOTION = 46                # ���ͱ���
-    WECHAT_GET_CDN = 47                         # �����ļ�����Ƶ��ͼƬ
+    WECHAT_MSG_FORWARD_MESSAGE = 40             # 转发消息
+    WECHAT_GET_QRCODE_IMAGE = 41                # 获取二维码
+    WECHAT_GET_A8KEY = 42                       # 获取A8Key
+    WECHAT_MSG_SEND_XML = 43                    # 发送xml消息
+    WECHAT_LOGOUT = 44                          # 退出登录
+    WECHAT_GET_TRANSFER = 45                    # 收款
+    WECHAT_MSG_SEND_EMOTION = 46                # 发送表情
+    WECHAT_GET_CDN = 47                         # 下载文件、视频、图片

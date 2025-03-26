@@ -2,7 +2,7 @@ import copy
 from .WechatHttpApis import WECHAT_HTTP_APIS as APIS
 
 
-# WechatBotHTTP api ²ÎÊýÄ£°å
+# WechatBotHTTP api å‚æ•°æ¨¡æ¿
 class WECHAT_HTTP_API_PARAM_TEMPLATES:
     __HTTP_API_PARAM_TEMPLATE = {
         # login check
@@ -16,7 +16,7 @@ class WECHAT_HTTP_API_PARAM_TEMPLATES:
         # send message
         APIS.WECHAT_MSG_SEND_TEXT: {"wxid": "",
                                     "msg": ""},
-        # wxidsÐèÒªÒÔ`,`·Ö¸ô£¬ÀýÈç`wxid1,wxid2,wxid3`
+        # wxidséœ€è¦ä»¥`,`åˆ†éš”ï¼Œä¾‹å¦‚`wxid1,wxid2,wxid3`
         APIS.WECHAT_MSG_SEND_AT: {"chatroom_id":"",
                                   "wxids": "",
                                   "msg": "",
@@ -68,10 +68,10 @@ class WECHAT_HTTP_API_PARAM_TEMPLATES:
         APIS.WECHAT_CHATROOM_GET_MEMBER_LIST: {"chatroom_id":""},
         APIS.WECHAT_CHATROOM_GET_MEMBER_NICKNAME: {"chatroom_id":"",
                                                    "wxid":""},
-        # wxidsÐèÒªÒÔ`,`·Ö¸ô£¬ÀýÈç`wxid1,wxid2,wxid3`
+        # wxidséœ€è¦ä»¥`,`åˆ†éš”ï¼Œä¾‹å¦‚`wxid1,wxid2,wxid3`
         APIS.WECHAT_CHATROOM_DEL_MEMBER: {"chatroom_id":"",
                                           "wxids":""},
-        # wxidsÐèÒªÒÔ`,`·Ö¸ô£¬ÀýÈç`wxid1,wxid2,wxid3`
+        # wxidséœ€è¦ä»¥`,`åˆ†éš”ï¼Œä¾‹å¦‚`wxid1,wxid2,wxid3`
         APIS.WECHAT_CHATROOM_ADD_MEMBER: {"chatroom_id":"",
                                           "wxids":""},
         APIS.WECHAT_CHATROOM_SET_ANNOUNCEMENT: {"chatroom_id":"",

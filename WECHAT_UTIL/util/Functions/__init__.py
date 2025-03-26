@@ -1,1 +1,1 @@
-import deepseek
+import WECHAT_UTIL.util.Functions.DeepSeek
