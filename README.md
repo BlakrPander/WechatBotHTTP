@@ -15,7 +15,8 @@
 - 安装好上述特定版本的微信
 - 在WECHAT_UTIL/util/Functions/DeepSeek/configurations.json里，配置自己的apikey
 - 在WECHAT_UTIL/util/chatroom.json里配置授权的群聊
-- 运行main.py即可
+- 运行禁止微信更新.bat
+- 运行main.py
 
 2025.3.26
 - 添加了被at时自动接入deepseek
