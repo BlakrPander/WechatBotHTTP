@@ -1,4 +1,3 @@
-#coding=gbk
 import socketserver
 import json
 from WECHAT_UTIL.MessageProcess import messageProcess as msgProcess
@@ -29,7 +28,7 @@ class ReceiveMsgSocketServer(socketserver.BaseRequestHandler):
     @staticmethod
     def msg_callback(msg):
         msgProcess(msg)
-        # TODO: 在这里写额外的消息处理逻辑
+
 
 
 if __name__ == "__main__":

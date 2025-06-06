@@ -1,41 +1,40 @@
-#coding=gbk
 import json
 from DeepSeekClient import DeepSeekClient as dsc
 from collections import deque
 
 with open('configurations.json', 'r') as configurations:
-    config=json.load(configurations)
-    api_key = config['api-key']
+	config=json.load(configurations)
+	api_key = config['api-key']
+	system_prompt = config['system_prompt']
 
-with open('system_prompt.json', 'r', encoding='utf-8') as file:
-    system_prompt_json=json.load(file)
-    system_prompt=json.dumps(system_prompt_json,ensure_ascii=False)
+# with open('system_prompt.json', 'r', encoding='utf-8') as file:
+# 	system_prompt_json=json.load(file)
+# 	system_prompt=json.dumps(system_prompt_json,ensure_ascii=False)
 
 max_history=10
 user_prompt=input()
 history=deque(maxlen=max_history)
 history.append(
-    {"role":"user","content":user_prompt}
+	{"role":"user","content":user_prompt}
 )
 
-client=()
+client=dsc()
 
 # system_prompt = json.dumps(str(system_prompt_string))
-# user_prompt="°¥ºÃÏë´òÓÎÏ·°¡"
+# user_prompt="å“å¥½æƒ³æ‰“æ¸¸æˆå•Š"
 while user_prompt:
-    message=[{"role":"system","content":system_prompt}]
-    message.extend(list(history))
-    # print(message)
-    response = client.chat.completions.create(
-        model="deepseek-chat",
-        messages=message,
-        temperature=0.85,  # ÊÊµ±Ìá¸ßËæ»úĞÔ
-        max_tokens=300,
-        top_p=0.9,
-        presence_penalty=0.4  # ÔÊĞíÊÊ¶ÈÖØ¸´ÃÈµã
-    )
-    respond=response.choices[0].message.content.strip()
-    print(respond)
-    history.append({"role":"assistant","content":respond})
-    user_prompt=input()
-    history.append({"role":"assistant","content":user_prompt})
+	message=[{"role":"system","content":system_prompt}]
+	message.extend(list(history))
+	# print(message)
+	response = client.generateReply(
+		prompt=str(message),
+		temperature=0.85,  # é€‚å½“æé«˜éšæœºæ€§
+		max_tokens=300,
+		top_p=0.9,
+		presence_penalty=0.4  # å…è®¸é€‚åº¦é‡å¤èŒç‚¹
+	)
+	respond=response
+	print(respond)
+	history.append({"role":"assistant","content":respond})
+	user_prompt=input()
+	history.append({"role":"assistant","content":user_prompt})
