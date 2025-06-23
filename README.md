@@ -8,9 +8,8 @@
 - 前置：[ComWechatRobot](https://github.com/ljc545w/ComWeChatRobot)
 - 运行环境：
 -   Windows Server 2022 数据中心版（x64)
--   Python 3.9.13
-- - 需要包：openai、requests、psutil、pymem
--   Sublime Text
+-   Python 3.9.13（依赖在requirements.txt中）
+-   Sublime Text（或者Notepad++）
 -   [微信 3.7.0.30](https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.7.0.30/WeChatSetup-3.7.0.30.exe)
 
 使用配置：
