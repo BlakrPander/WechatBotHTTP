@@ -1,6 +1,8 @@
 # WechatBotHTTP
 
 基于Windows Server平台，用Python写了接口的微信机器人，采用了ComWechatRobot框架里面的HTTP API接口调用
+在配置好了环境之后，每次运行main.py即可。会自动启动微信的进程，同时修改版本号。
+
 
 环境：
 - 前置：[ComWechatRobot](https://github.com/ljc545w/ComWeChatRobot)
@@ -18,6 +20,13 @@
 - 运行WECHAT_UTIL/util/tmpfunctions/fixVersion.py
 - 运行禁止微信更新.bat
 - 运行main.py
+
+开发计划：
+- 想办法使用json/数据库的形式将聊天记录保存下来，然后在每次调用deepseek的时候，能够实现带聊天记录调用
+- 打包一些常用的函数（自动通过好友申请等）
+- 将ChatroomFunctions等这些分开来存储（函数按文件存储，方便后期修改与编辑）
+- 多进程处理消息？
+
 
 2025.3.26
 - 添加了被at时自动接入deepseek
